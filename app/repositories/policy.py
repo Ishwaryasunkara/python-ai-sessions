@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 
 from app.models.policy import Policy
 from app.models.user import User
-from app.schemas.policy import Policycreate, Policyupdate
+from app.schemas.policy import PolicyCreate, PolicyUpdate
 
 
 def create_policy(db: Session, policy_data: PolicyCreate):

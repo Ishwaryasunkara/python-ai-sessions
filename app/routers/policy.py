@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.database import get_db
+from app.auth import get_current_user
 from app.schemas.policy import (
     PolicyCreate,
     PolicyUpdate,
@@ -12,7 +13,8 @@ from app.repositories import policy as policy_repository
 
 router = APIRouter(
     prefix="/policies",
-    tags=["Policies"]
+    tags=["Policies"],
+    dependencies=[Depends(get_current_user)]
 )
 
 
